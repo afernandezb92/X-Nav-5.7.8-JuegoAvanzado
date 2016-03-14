@@ -77,6 +77,9 @@ addEventListener("keyup", function (e) {
 
 // Reset the game when the player catches a princess
 var reset = function () {
+	localStorage.setItem("princessSaved", princessesCaught);
+	localStorage.setItem("levelSaved", level);
+	
 	hero.x = canvas.width / 2;
 	hero.y = canvas.height / 2;
 	
@@ -305,6 +308,14 @@ var main = function () {
 
 	then = now;
 };
+
+if(localStorage.getItem("princessSaved") != null){
+	princessesCaught = localStorage.getItem("princessSaved"); 
+}
+if(localStorage.getItem("levelSaved") != null){
+	level = localStorage.getItem("levelSaved"); 
+}
+
 
 // Let's play this game!
 reset();
